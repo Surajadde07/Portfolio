@@ -1,3 +1,5 @@
+"use client";
+
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import { HTMLAttributes, useEffect } from "react";
@@ -20,9 +22,7 @@ const Testimonial = (props: {
     const { scope: quoteScope, entranceAnimations: quoteEnteranceAnimations, exitAnimation: quoteExitAnimation } = useTextRevealAnimation();
     const { scope: citeScope, entranceAnimations: citeEnteranceAnimations, exitAnimation: citeExitAnimation } = useTextRevealAnimation();
 
-    const [isPresent, safeToRemove] = usePresence();
-
-    useEffect(() => {
+    const [isPresent, safeToRemove] = usePresence();    useEffect(() => {
         if (isPresent) {
             quoteEnteranceAnimations().then(() => {
                 citeEnteranceAnimations();
@@ -37,7 +37,7 @@ const Testimonial = (props: {
         isPresent, 
         quoteEnteranceAnimations, 
         citeEnteranceAnimations, 
-        quoteEnteranceAnimations, 
+        quoteExitAnimation, 
         citeExitAnimation, 
         safeToRemove
     ]);
